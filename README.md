@@ -22,3 +22,5 @@ yarn run lint
 quasar build
 ```
 
+### Having trouble with the linter?
+try `yarn run lint --fix` first.  If that doesnt then try in-line ignores.  There is no reason for blanket function (or above) ignores.
