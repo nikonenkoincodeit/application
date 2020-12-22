@@ -6,28 +6,32 @@
       @reset="onReset"
       class="q-gutter-md"
     >
-      <q-input
+    <q-input
         filled
-        v-model="name"
+        outlined
+        type="email"
+        v-model="email"
         label="Email *"
-        hint="Name and surname"
+        square
         lazy-rules
-        :rules="[ val => val && val.length > 0 || 'Please type something']"
-      />
+        v-bind:rules="[val => !!val || 'Email is missing', isValidEmail]"
+    />
 
-      <q-input
-        filled
-        type="number"
-        v-model="age"
-        label="Your age *"
-        lazy-rules
-        :rules="[
-          val => val !== null && val !== '' || 'Please type your age',
-          val => val > 0 && val < 100 || 'Please type a real age'
-        ]"
-      />
+    <q-input filled
+      v-model="password"
+      label="Enter your password"
+      hint="Enter your password"
+      v-bind:type="isPwd ? 'password' : ''"
+      lazy-rules
+      v-bind:rules="Required"
+      ref="fldPasswordChange">
+      <template v-slot:append>
+        <q-icon :name="isPwd ? 'visibility_off' : 'visibility'"
+          class="cursor-pointer"
+          v-on:click="isPwd = !isPwd"></q-icon>
+      </template>
+    </q-input>
 
-      <q-toggle v-model="accept" label="I accept the license and terms" />
 
       <div>
         <q-btn label="Submit" type="submit" color="primary"/>
@@ -40,45 +44,47 @@
 
 
 <script>
+
 export default {
   data () {
     return {
-      name: null,
-      age: null,
-
-      accept: false
+      email: null,
+      password: null,
+      isPwd: true,
     }
   },
-
-  methods: {
+computed: {
+    ConfirmPWD() {
+      
+        return [
+            (v) => !!v || "Saisissez quelque chose :-)",
+            (v) => v === this.$refs.fldPasswordChange.value || "Mots de passe différents"
+        ]
+    },
+    Required() {
+        return [(v) => !!v || 'Saisissez quelque chose :-)']
+    }
+},
+methods: {
     onSubmit () {
-      if (this.accept !== true) {
-        this.$q.notify({
-          color: 'red-5',
-          textColor: 'white',
-          icon: 'warning',
-          message: 'You need to accept the license and terms first'
-        })
-      }
-      else {
-        this.$q.notify({
-          color: 'green-4',
-          textColor: 'white',
-          icon: 'cloud_done',
-          message: 'Submitted'
-        })
-      }
+
+        // this.$q.notify({
+        //   color: 'green-4',
+        //   textColor: 'white',
+        //   icon: 'cloud_done',
+        //   message: 'Submitted'
+        // })
+     
     },
 
     onReset () {
-      this.name = null
-      this.age = null
-      this.accept = false
-    }
+      this.email = null
+      this.password = null
+    },
+    isValidEmail (val) {
+        const emailPattern = /^(?=[a-zA-Z0-9@._%+-]{6,254}$)[a-zA-Z0-9._%+-]{1,64}@(?:[a-zA-Z0-9-]{1,63}\.){1,8}[a-zA-Z]{2,63}$/;
+        return emailPattern.test(val) || 'Invalid email';
+  }
   }
 }
 </script>
-
-<style scoped>
-
-</style>

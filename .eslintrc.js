@@ -62,6 +62,13 @@ module.exports = {
     'no-trailing-spaces': 'off',
     'no-multiple-empty-lines': 'off',
     'brace-style': 'off',
+    'padded-blocks': 'off',
+    'no-multi-spaces': 'off',
+    'space-before-function-paren': 'off',
+    'quotes': 'off',
+    'no-unused-expressions': 'off',
+    'no-sequences': 'off',
+
 
     'import/first': 'off',
     'import/named': 'error',

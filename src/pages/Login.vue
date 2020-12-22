@@ -1,6 +1,8 @@
 <template>
   <q-page class="flex flex-center">
-    <TabsForm />
+    <div class="row">
+      <TabsForm />
+    </div>
   </q-page>
 </template>
 
