@@ -20,13 +20,11 @@
 
         <q-tab-panels v-model="tab" animated>
           <q-tab-panel name="register">
-            <div class="text-h6">Mails</div>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            <SignUpForm />
           </q-tab-panel>
 
           <q-tab-panel name="login">
-            <div class="text-h6">Alarms</div>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            <LoginForm />
           </q-tab-panel>
 
         </q-tab-panels>
@@ -37,11 +35,17 @@
 </template>
 
 <script>
+import LoginForm from './Forms/LoginForm';
+import SignUpForm from './Forms/SignUpForm';
 export default {
   data () {
     return {
       tab: 'register'
     }
+  },
+  components: {
+    LoginForm,
+    SignUpForm,
   }
 }
 </script>

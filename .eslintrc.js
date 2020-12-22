@@ -58,6 +58,10 @@ module.exports = {
     'semi': 'off',
     'comma-dangle': 'off',
     'eol-last': 'off',
+    'indent': 'off',
+    'no-trailing-spaces': 'off',
+    'no-multiple-empty-lines': 'off',
+    'brace-style': 'off',
 
     'import/first': 'off',
     'import/named': 'error',
