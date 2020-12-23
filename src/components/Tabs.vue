@@ -1,5 +1,5 @@
 <template>
-  <div class="q-pa-md">
+  <div class="col-md-6">
     <div class="q-gutter-y-md" style="max-width: 600px">
       <q-card>
         <q-tabs

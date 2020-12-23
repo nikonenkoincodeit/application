@@ -1,2 +1,6 @@
-export function someGetter (/* state */) {
+export default {
+    getRegistrationStatus ( state, payload ) {
+        console.log('getters', payload); 
+    }
+
 }

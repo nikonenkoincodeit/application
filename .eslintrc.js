@@ -68,7 +68,9 @@ module.exports = {
     'quotes': 'off',
     'no-unused-expressions': 'off',
     'no-sequences': 'off',
-
+    'space-in-parens': 'off',
+    'object-curly-spacing': 'off',
+    'key-spacing': 'off',
 
     'import/first': 'off',
     'import/named': 'error',
@@ -79,6 +81,7 @@ module.exports = {
     'import/no-unresolved': 'off',
     'import/no-extraneous-dependencies': 'off',
     'prefer-promise-reject-errors': 'off',
+    'vue/no-parsing-error': 'off',
 
 
     // allow debugger during development only
