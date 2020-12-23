@@ -1,3 +1,3 @@
-export default  {
-  requiresAuth: null
-}
+export default {
+  userName: null
+};

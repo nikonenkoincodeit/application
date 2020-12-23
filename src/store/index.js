@@ -1,12 +1,12 @@
-import Vue from 'vue'
-import Vuex from 'vuex'
+import Vue from "vue";
+import Vuex from "vuex";
 
-import actions from './module-example/actions'
-import mutations from './module-example/mutations'
-import getters from './module-example/getters'
-import state from './module-example/state'
+import actions from "./module-example/actions";
+import mutations from "./module-example/mutations";
+import getters from "./module-example/getters";
+import state from "./module-example/state";
 
-Vue.use(Vuex)
+Vue.use(Vuex);
 
 /*
  * If not building with SSR mode, you can
@@ -17,7 +17,7 @@ Vue.use(Vuex)
  * with the Store instance.
  */
 
-export default function (/* { ssrContext } */) {
+export default function(/* { ssrContext } */) {
   const Store = new Vuex.Store({
     state,
     actions,
@@ -26,7 +26,7 @@ export default function (/* { ssrContext } */) {
     // enable strict mode (adds overhead!)
     // for dev mode only
     strict: process.env.DEBUGGING
-  })
-console.log(Store);
-  return Store
+  });
+
+  return Store;
 }

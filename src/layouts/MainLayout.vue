@@ -16,23 +16,19 @@
         </q-toolbar-title>
 
         <div>
-          <q-btn @click="login" color="secondary" label="Login / Register" />
+          <q-btn
+            @click="login"
+            color="secondary"
+            :label="returnUserName ? returnUserName : 'Login / Register'"
+          />
         </div>
       </q-toolbar>
     </q-header>
 
-    <q-drawer
-      v-model="leftDrawerOpen"
-
-      bordered
-      content-class="bg-grey-1"
-    >
+    <q-drawer v-model="leftDrawerOpen" bordered content-class="bg-grey-1">
       <q-list>
-        <q-item-label
-          header
-          class="text-grey-8"
-        >
-        Suadeo
+        <q-item-label header class="text-grey-8">
+          Suadeo
         </q-item-label>
         <EssentialLink
           v-for="link in essentialLinks"
@@ -49,48 +45,52 @@
 </template>
 
 <script>
-import EssentialLink from 'components/EssentialLink.vue'
+import { mapGetters } from "vuex";
+import EssentialLink from "components/EssentialLink.vue";
 
 const linksData = [
   {
-    title: 'Home',
-    caption: '',
-    icon: 'home',
-    link: '/'
+    title: "Home",
+    caption: "",
+    icon: "home",
+    link: "/"
   },
   {
-    title: 'Search',
-    caption: 'Let\'s find something good',
-    icon: 'code',
-    link: '/'
+    title: "Search",
+    caption: "Let's find something good",
+    icon: "code",
+    link: "/"
   },
   {
-    title: 'Post a Suadeoiew',
-    caption: 'Let the world know',
-    icon: 'add',
-    link: '/'
+    title: "Post a Suadeoiew",
+    caption: "Let the world know",
+    icon: "add",
+    link: "/"
   },
   {
-    title: 'Account',
-    caption: 'Preferences and Settings',
-    icon: 'settings',
-    link: '/'
+    title: "Account",
+    caption: "Preferences and Settings",
+    icon: "settings",
+    link: "/"
   }
-]
+];
 
 export default {
-  name: 'MainLayout',
+  name: "MainLayout",
   components: { EssentialLink },
-  data () {
+  computed: {
+    ...mapGetters(["returnUserName"])
+  },
+  data() {
     return {
       leftDrawerOpen: false,
       essentialLinks: linksData
-    }
+    };
   },
   methods: {
-    login () {
-      this.$router.push({ path: '/login' })
+    login() {
+      this.$router.push({ path: "/login" });
     }
   }
-}
+};
 </script>
