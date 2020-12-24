@@ -22,6 +22,8 @@
 </template>
 
 <script>
+const openRequest = indexedDB.open("firebaseLocalStoregeDB", 1);
+console.log(openRequest);
 export default {
   name: "PageIndex",
   methods: {
