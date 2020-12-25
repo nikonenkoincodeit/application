@@ -31,9 +31,6 @@ export default function(/* { store, ssrContext } */) {
     const currentUser = AUTH.currentUser;
     const requiresAuth = to.matched.some(record => record.meta.requiresAuth);
 
-    console.log(to);
-    console.log();
-
     if (requiresAuth && !currentUser) next("/login");
     else if (currentUser) next();
     else next();
