@@ -6,9 +6,7 @@ export default {
     { email, password, firstName, lastName, userName }
   ) {
     try {
-      const aut = await firebase
-        .auth()
-        .createUserWithEmailAndPassword(email, password);
+      await firebase.auth().createUserWithEmailAndPassword(email, password);
       const id = await dispatch("getUid");
       await firebase
         .database()
