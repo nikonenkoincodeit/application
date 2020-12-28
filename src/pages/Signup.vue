@@ -27,7 +27,7 @@
             v-model.trim="userEmail"
             :class="{ invalid: $v.userEmail.$error }"
             type="email"
-            label="Email of Address..."
+            label="Email"
           />
           <q-btn
             label="Next"

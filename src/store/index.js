@@ -1,10 +1,10 @@
 import Vue from "vue";
 import Vuex from "vuex";
 
-import actions from "./module-example/actions";
-import mutations from "./module-example/mutations";
-import getters from "./module-example/getters";
-import state from "./module-example/state";
+import actions from "./actions";
+import mutations from "./mutations";
+import getters from "./getters";
+import state from "./state";
 
 Vue.use(Vuex);
 

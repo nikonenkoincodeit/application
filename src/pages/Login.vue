@@ -9,7 +9,7 @@
           outlined
           v-model="form.email"
           type="email"
-          label="Email of Username"
+          label="Email or Username"
         />
         <q-input
           square
