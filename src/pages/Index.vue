@@ -2,7 +2,7 @@
   <q-page class="row flex-center">
     <q-card-section class="col-lg-3 col-md-4">
       <h2 class="title">Suadeo</h2>
-      <p class="sub-title">Recommendations at your findertips</p>
+      <p class="sub-title">Recommendations at your fingertips</p>
       <div class="column">
         <q-btn
           label="Login"
